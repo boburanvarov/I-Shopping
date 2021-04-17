@@ -1,0 +1,44 @@
+<h5>E'lon haqida</h5>
+<hr>
+<br>
+
+
+<div class="profile">
+
+    <mat-grid-list cols="2" rowHeight="10:1">
+
+        <mat-grid-tile class="profile-title"> Id </mat-grid-tile>
+        <mat-grid-tile class="profile-value"> {{announcements.id}} </mat-grid-tile>
+
+        <mat-grid-tile class="profile-title"> Katalog nomi </mat-grid-tile>
+        <mat-grid-tile class="profile-value"> {{announcements.catalogName}} </mat-grid-tile>
+
+        <mat-grid-tile class="profile-title"> Kategoriya nomi </mat-grid-tile>
+        <mat-grid-tile class="profile-value"> {{announcements.categoryName}} </mat-grid-tile>
+
+        <mat-grid-tile class="profile-title"> Kiritilgan sana </mat-grid-tile>
+        <mat-grid-tile class="profile-value"> {{announcements.date | date: 'dd.MM.yyyy, h:mm:ss '}} </mat-grid-tile>
+
+        <mat-grid-tile class="profile-title"> E'lon nomi </mat-grid-tile>
+        <mat-grid-tile class="profile-value"> {{announcements.adsName}} </mat-grid-tile>
+
+        <mat-grid-tile class="profile-title"> E'lon matni </mat-grid-tile>
+        <mat-grid-tile class="profile-value"> {{announcements.adsBody}} </mat-grid-tile>
+
+        <mat-grid-tile class="profile-title"> Tovar/Mahsulot/Hizmat narxi </mat-grid-tile>
+        <mat-grid-tile class="profile-value"> {{announcements.price}} </mat-grid-tile>
+
+        <mat-grid-tile class="profile-title"> E'lon beruvchi tel. raqami </mat-grid-tile>
+        <mat-grid-tile class="profile-value"> {{announcements.phoneNumber}} </mat-grid-tile>
+
+        <mat-grid-tile class="profile-title"> Shahar </mat-grid-tile>
+        <mat-grid-tile class="profile-value"> {{announcements.cityName}} </mat-grid-tile>
+
+        <mat-grid-tile class="profile-title"> Tuman </mat-grid-tile>
+        <mat-grid-tile class="profile-value"> {{announcements.regionName}} </mat-grid-tile>
+
+        <mat-grid-tile class="profile-title"> Manzil </mat-grid-tile>
+        <mat-grid-tile class="profile-value"> {{announcements.address}} </mat-grid-tile>
+
+    </mat-grid-list>
+</div>

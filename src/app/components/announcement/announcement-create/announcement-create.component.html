@@ -1,0 +1,98 @@
+<h5>E'lon berish</h5>
+<hr>
+
+<form [formGroup]="createForm">
+
+    <mat-form-field class="mat-form-field">
+        <mat-label>Kataloglar</mat-label>
+        <mat-select formControlName="catalogId" (selectionChange)="selectCatalog($event.value)">
+            <mat-option *ngFor="let data of catalogList" value="{{data.id}}">{{data.catalogName}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="mat-form-field">
+        <mat-label>Kategoriyalar</mat-label>
+        <mat-select formControlName="categoryId" (selectionChange)="selectCategory($event.value)">
+            <mat-option *ngFor="let data of categoryList; let i = index" value="{{data.categoryId}}">
+                {{data.categoryName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="parentCategory && parentList.length > 0">
+        <mat-label>Parent</mat-label>
+        <mat-select formControlName="parentId">
+            <mat-option value="none">-</mat-option>
+            <mat-option *ngFor="let data of parentList" value="{{data.categoryId}}">
+                {{data.categoryName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="mat-form-field">
+        <mat-label>E'lon nomi</mat-label>
+        <input matInput type="text" formControlName="adsName">
+        <mat-error *ngIf="this.createForm.controls.adsName.hasError('required')">
+            Iltimos e'lon nomini kiriting
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="mat-form-field">
+        <mat-label>E'lon matni</mat-label>
+        <textarea matInput formControlName="adsBody" rows="10"></textarea>
+        <mat-error *ngIf="this.createForm.controls.adsBody.hasError('required')">
+            Iltimos e'lon matnini kiriting
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="mat-form-field">
+        <mat-label>Narx</mat-label>
+        <input matInput type="number" formControlName="price">
+        <mat-error *ngIf="this.createForm.controls.price.hasError('required')">
+            Iltimos narxni kiriting
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="citiesList.length > 0">
+        <mat-label>Shahar</mat-label>
+        <mat-select formControlName="cityId" (selectionChange)="selectCity($event.value)">
+            <mat-option *ngFor="let data of citiesList" value="{{data.id}}">
+                {{data.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Tuman</mat-label>
+        <mat-select formControlName="regionId">
+            <mat-option *ngFor="let data of regionsList" value="{{data.id}}">
+                {{data.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="mat-form-field">
+        <mat-label>Manzil</mat-label>
+        <input matInput type="text" formControlName="address">
+        <mat-error *ngIf="this.createForm.controls.address.hasError('required')">
+            Iltimos manzilni kiriting
+        </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="mat-form-field">
+        <mat-label>Telefon raqam</mat-label>
+        <input matInput type="number" formControlName="phoneNumber" placeholder="+998*********" minlength="13">
+        <mat-error *ngIf="this.createForm.controls.phoneNumber.hasError('required')">
+            Iltimos telefon raqamini kiriting
+        </mat-error>
+    </mat-form-field>
+
+    <div class="image-upload">
+        <input id="file" type="file" formControlName="image" (change)="handleFileSelect($event)">
+    </div>
+
+</form>
+<br>
+<button mat-raised-button color="primary" (click)="create()" [disabled]="!this.createForm.valid">
+    Add new <mat-icon>add</mat-icon>
+</button>

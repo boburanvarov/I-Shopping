@@ -1,0 +1,34 @@
+<div fxLayout="column" fxLayout.gt-lg="row" fxLayoutAlign="space-around center">
+    <mat-grid-list #grid rowHeight="2:1" cols="1" class="category-product">
+        <h1 class="category-title">Bosh toifalar</h1>
+
+        <div>
+            <button mat-button *ngFor="let data of catalogList; let i = index" (click)="getCategories(data.id)">
+
+                <div [matMenuTriggerFor]="category">
+                    <img [src]='data.catalogImage' class="category-image">
+                    <h3 class="product-text">{{data.catalogName}}</h3>
+                </div>
+
+                <mat-menu #category="matMenu">
+                    <div *ngFor="let category of categoryList">
+
+                        <button mat-menu-item [matMenuTriggerFor]="secondCategory"
+                            (mouseenter)="getParents(category.categoryId)"
+                            (click)="searchByCategory(category.categoryId)">
+                            {{category.categoryName}}</button>
+
+                        <mat-menu #secondCategory="matMenu">
+                            <div *ngFor="let parent of parentList">
+                                <button mat-menu-item
+                                (click)="searchByParent(parent.categoryId)">
+                                {{parent.categoryName}}</button>
+                            </div>
+                        </mat-menu>
+                    </div>
+                </mat-menu>
+            </button>
+
+        </div>
+    </mat-grid-list>
+</div>

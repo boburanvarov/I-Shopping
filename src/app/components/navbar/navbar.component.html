@@ -1,0 +1,32 @@
+<div fxLayout="column" fxLayout.gt-lg="row" fxLayoutAlign="space-around center" class="header">
+  <mat-grid-list #grid rowHeight="2:1" cols="1" class="main-block">
+    <div class="header-items">
+      <span class="logo">Site name</span>
+      <span class="languages">
+        <a href="javascript:void(0);">UZ</a>
+        <span>|</span>
+        <a href="javascript:void(0);">RU</a>
+      </span>
+      <span class="panel">
+        <span class="material-icons account_circle" mat-raised-button (click)="account()">account_circle</span>
+        <span class="material-icons login" mat-raised-button (click)="loginDialog()">login</span>
+        <span *ngIf="isLogin" class="material-icons login" mat-raised-button (click)="logout()">logout</span>
+      </span>
+    </div>
+  </mat-grid-list>
+</div>
+
+<div fxLayout="column" fxLayout.gt-lg="row" fxLayoutAlign="space-around center" class="navbar">
+  <mat-grid-list #grid rowHeight="2:1" cols="1" class="category-block">
+    <form class="form" #f="ngForm">
+      <div class="formFilter">
+        <input type="text" placeholder="860 210 e'lonlar yoningizda" ngModel name="searchInput" 
+            #searchInput="ngModel">
+      </div>
+      <div class="formButton" mat-raised-button (click)="search(f)">
+        <span>Qidirish</span>
+        <span class="material-icons search-icon">search</span>
+      </div>
+    </form>
+  </mat-grid-list>
+</div>

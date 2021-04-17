@@ -1,0 +1,28 @@
+<h5>Category Edit</h5>
+<hr>
+<br>
+
+<form [formGroup]="createForm">
+
+    <mat-form-field class="mat-form-field">
+        <mat-label>Kategoriya nomi</mat-label>
+        <input matInput type="text" formControlName="categoryName">
+        <mat-error *ngIf="this.createForm.controls.categoryName.hasError('required')">
+            Iltimos katalog nomini kiriting
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="mat-form-field" *ngIf="this.createForm.controls.parentId.value != null">
+        <mat-label>Parent</mat-label>
+        <mat-select formControlName="parentId">
+            <mat-option *ngFor="let data of parentList; let i = index" value="{{data.categoryId}}">
+                {{data.categoryName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>
+
+<br>
+<button mat-raised-button color="primary" (click)="save()" [disabled]="!this.createForm.valid">
+    Save <mat-icon>save</mat-icon>
+</button>

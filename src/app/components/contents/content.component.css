@@ -1,0 +1,38 @@
+.announcement-section{
+    width: 100%;
+    background-color: #f2f4f5;
+}
+
+.content{
+    width: 80%;
+    text-align: center;
+    padding: 50px;
+    margin: 10px auto;
+}
+
+.example-card img{
+    height: 150px;
+}
+
+.example-card {
+    max-width: 200px;
+    margin: 10px;
+    display: inline-block;
+    text-align: left;
+}
+
+.example-card:hover{
+    cursor: pointer;
+}
+
+.address{
+    font-size: 12px;
+}
+
+.price{
+    font-size: 16px;
+}
+
+.title {
+    font-size: 30px;
+}

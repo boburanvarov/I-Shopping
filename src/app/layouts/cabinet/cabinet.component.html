@@ -1,0 +1,32 @@
+<!--  -->
+<mat-grid-list cols="1" rowHeight="50px">
+    <mat-grid-tile>
+        <span class="material-icons reorder" (click)="drawer.toggle()">reorder</span>
+        <span (click)="logout()" class="material-icons person">person</span>
+        <span (click)="logout()" class="material-icons logout">logout</span>
+    </mat-grid-tile>
+</mat-grid-list>
+<!--  -->
+<mat-drawer-container class="container">
+    <mat-drawer #drawer mode="side" class="sidenav" opened>
+        <button mat-button routerLink="catalog"> <span class="material-icons sidenav-icons">list</span>Katalog
+        </button>
+        <button mat-button routerLink="category"> <span
+                class="material-icons sidenav-icons">category</span>Kategoriyalar
+        </button>
+        <button mat-button routerLink="announcement"> <span
+                class="material-icons sidenav-icons">summarize</span>E'lonlar
+        </button>
+    </mat-drawer>
+    <mat-drawer-content>
+
+        <mat-card class="example-card">
+            <mat-card-content>
+
+                <router-outlet></router-outlet>
+
+            </mat-card-content>
+        </mat-card>
+
+    </mat-drawer-content>
+</mat-drawer-container>

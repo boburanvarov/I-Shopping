@@ -1,0 +1,19 @@
+<h5>Catalog Create</h5>
+
+<form [formGroup]="createForm">
+    <mat-form-field class="example-form">
+        <mat-label class="labelText">Catalog Name</mat-label>
+        <input matInput type="text" formControlName="catalogName">
+        <mat-error *ngIf="this.createForm.controls.catalogName.hasError('required')">
+            Iltimos katalog nomini kiriting
+        </mat-error>
+    </mat-form-field>
+
+    <div class="image-upload">
+        <input id="file" type="file" formControlName="image" (change)="handleFileSelect($event)">
+    </div>
+</form>
+<br>
+<button mat-raised-button color="primary" (click)="create()" [disabled]="!this.createForm.valid"> Add new
+    <mat-icon>add</mat-icon>
+</button>

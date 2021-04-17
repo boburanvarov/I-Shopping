@@ -1,0 +1,44 @@
+<h5>Kategoriya qo'shish</h5>
+<hr>
+
+<form [formGroup]="createForm">
+
+    <mat-form-field class="mat-form-field">
+        <mat-label>Kataloglar</mat-label>
+        <mat-select formControlName="catalogId" (selectionChange)="selectCatalog($event.value)">
+            <mat-option *ngFor="let data of catalogList" value="{{data.id}}">{{data.catalogName}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="mat-form-field">
+        <mat-label>Kategoriyalar</mat-label>
+        <mat-select formControlName="categoryId" (selectionChange)="selectCategory($event.value)">
+            <mat-option value="new">Yangi kategoriya qo'shish</mat-option>
+            <mat-option *ngFor="let data of categoryList; let i = index" value="{{data.categoryId}}">
+                {{data.categoryName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="parentCategory">
+        <mat-label>parent</mat-label>
+        <mat-select formControlName="parentId" (selectionChange)="selectParent($event.value)">
+            <mat-option value="new">Yangi kategoriya qo'shish</mat-option>
+            <mat-option *ngFor="let data of parentList; let i = index" value="{{i}}">
+                {{data.categoryName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="mat-form-field" *ngIf="newCategory">
+        <mat-label>Category Name</mat-label>
+        <input matInput type="text" formControlName="categoryName">
+        <mat-error *ngIf="this.createForm.controls.categoryName.hasError('required')">
+            Iltimos katalog nomini kiriting
+        </mat-error>
+    </mat-form-field>
+</form>
+<br>
+<button mat-raised-button color="primary" (click)="create()" [disabled]="!this.createForm.valid">
+    Add new <mat-icon>add</mat-icon>
+</button>

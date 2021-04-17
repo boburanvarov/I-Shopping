@@ -1,0 +1,16 @@
+<mat-card class="example-card">
+  <img mat-card-image src="{{announcement.image}}" alt="{{announcement.adsName}}" title="{{announcement.adsName}}">
+  <mat-card-content>
+    <p> <b> {{announcement.adsName}} </b></p>
+    <p> {{announcement.adsBody}} </p>
+    <p>
+      <i>{{announcement.phoneNumber}}</i> <br>
+      <i>{{announcement.address}}</i> <br>
+    </p>
+    <p> <b>{{announcement.price}}</b> </p>
+  </mat-card-content>
+</mat-card>
+
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data">Close</button>
+</div>

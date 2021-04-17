@@ -1,0 +1,45 @@
+table {
+    width: 100%;
+}
+
+.mat-cell {
+    color: #303030;
+}
+
+.mat-row {
+    color: #303030;
+    background-color: white;
+}
+
+.filter {
+    color: #303030;
+}
+
+.delete {
+    color: red;
+}
+
+.add {
+    float: right;
+}
+
+.iconsTable {
+    display: flex;
+    padding: 10px;
+}
+
+table tr th:nth-child(1) {
+    width: 100px;
+}
+
+table tr th:nth-child(2) {
+    width: 300px;
+}
+
+table tr th:nth-child(3) {
+    width: 300px;
+}
+
+table tr th:nth-child(4) {
+    width: 300px;
+}
